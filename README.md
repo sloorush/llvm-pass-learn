@@ -39,7 +39,7 @@ Run:
 ❯ ./a.out a b c
 ❯ echo $?
 9
-❯ clang -flegacy-pass-manager -Xclang -load-Xclang build/badCalculatorlibBadCalculatorPass.* a.cpp
+❯ clang -flegacy-pass-manager -Xclang -load -Xclang build/badCalculator/libBadCalculatorPass.* a.cpp
 HOHOHO Bad calculator
 ❯ ./a.out
 ❯ echo $?
