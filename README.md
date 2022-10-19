@@ -40,7 +40,7 @@ Run:
 ❯ echo $?
 9
 ❯ clang -flegacy-pass-manager -Xclang -load-Xclang build/badCalculatorlibBadCalculatorPass.* a.cpp
-HOHOHO Bad calculator:
+HOHOHO Bad calculator
 ❯ ./a.out
 ❯ echo $?
 5
@@ -49,5 +49,23 @@ HOHOHO Bad calculator:
 20
   ```
 </details>
+
+## First operator
+
+Logs the result of the first binary operation
+
+<details>
+  <summary>Example</summary>
+  
+  ```
+❯ cc -c rtlib.c
+❯ clang -flegacy-pass-manager -Xclang -load -Xclang build/firstOperator/libFirstOperatorPass.so -c a.cpp
+❯ cc rtlib.o a.o -o exe
+❯ ./exe
+computed: 6
+  ```
+</details>
+
+---
 
 Skeleton to write the LLVM pass was picked up from -> https://github.com/sampsyo/llvm-pass-skeleton

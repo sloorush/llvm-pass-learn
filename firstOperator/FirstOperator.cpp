@@ -13,20 +13,16 @@ struct SkeletonPass : public FunctionPass {
   SkeletonPass() : FunctionPass(ID) {}
 
   virtual bool runOnFunction(Function &F) {
-    errs() << "HOHOHO Bad calculator\n";
+    LLVMContext &Ctx = F.getContext();
+    auto logFunc = F.getParent()->getOrInsertFunction(
+        "logop", Type::getVoidTy(Ctx), Type::getInt32Ty(Ctx));
     for (auto &B : F) {
       for (auto &I : B) {
         if (auto *op = dyn_cast<BinaryOperator>(&I)) {
           IRBuilder<> builder(op);
-          Value *lhs = op->getOperand(0);
-          Value *rhs = op->getOperand(1);
-          Value *mul = builder.CreateMul(lhs, rhs);
-
-          for (auto &U : op->uses()) {
-            User *user = U.getUser();
-            user->setOperand(U.getOperandNo(), mul);
-          }
-
+          builder.SetInsertPoint(&B, ++builder.GetInsertPoint());
+          Value *args = {op};
+          builder.CreateCall(logFunc, args);
           return true;
         }
       }

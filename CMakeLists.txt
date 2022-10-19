@@ -11,3 +11,4 @@ link_directories(${LLVM_LIBRARY_DIRS})
 
 add_subdirectory(logger)  # Use your pass name here.
 add_subdirectory(badCalculator)  # Use your pass name here.
+add_subdirectory(firstOperator)  # Use your pass name here.
