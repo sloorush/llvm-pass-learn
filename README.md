@@ -14,6 +14,6 @@ Build:
 
 Run:
 
-    $ clang -flegacy-pass-manager -Xclang -load -Xclang build/skeleton/libSkeletonPass.* a.cpp
+    $ clang -flegacy-pass-manager -Xclang -load -Xclang build/logger/libLoggerPass.* a.cpp
 
 Skeleton to write the LLVM pass was picked up from -> https://github.com/sampsyo/llvm-pass-skeleton
