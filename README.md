@@ -1,6 +1,6 @@
-# llvm-pass-skeleton
+# logger-llvm-pass
 
-A completely useless LLVM pass.
+A dummy LLVM pass to log the LLVM IR and get the functions, basic blocks, and instructions.
 It's for LLVM 14.
 
 Build:
@@ -14,4 +14,6 @@ Build:
 
 Run:
 
-    $ clang -flegacy-pass-manager -Xclang -load -Xclang build/skeleton/libSkeletonPass.* something.c
+    $ clang -flegacy-pass-manager -Xclang -load -Xclang build/skeleton/libSkeletonPass.* a.cpp
+
+Skeleton to write the LLVM pass was picked up from -> https://github.com/sampsyo/llvm-pass-skeleton
