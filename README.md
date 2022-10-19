@@ -1,4 +1,4 @@
-# logger-llvm-pass
+# llvm-pass-learn
 
 A dummy LLVM pass collection made to learn.
 It's for LLVM 14.
@@ -26,6 +26,28 @@ A bad calculator that changes you first addition to multiplication
 
 Run:
 
-    $ clang -flegacy-pass-manager -Xclang -load -Xclang build/badCalculator/libBadCalculatorPass.* a.cp
+    $ clang -flegacy-pass-manager -Xclang -load -Xclang build/badCalculator/libBadCalculatorPass.* a.cpp
+
+<details>
+  <summary>Example</summary>
+  
+  ```
+❯ clang a.cpp
+❯ ./a.out
+❯ echo $?
+6
+❯ ./a.out a b c
+❯ echo $?
+9
+❯ clang -flegacy-pass-manager -Xclang -load-Xclang build/badCalculatorlibBadCalculatorPass.* a.cpp
+HOHOHO Bad calculator:
+❯ ./a.out
+❯ echo $?
+5
+❯ ./a.out a b c
+❯ echo $?
+20
+  ```
+</details>
 
 Skeleton to write the LLVM pass was picked up from -> https://github.com/sampsyo/llvm-pass-skeleton

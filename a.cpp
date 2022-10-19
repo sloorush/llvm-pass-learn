@@ -1,7 +1,1 @@
-int main() {
-  int x = 33421;
-  if (x < 0) {
-    return x++;
-  }
-  return x;
-}
+int main(int argc, char **argv) { return argc + 5; }
